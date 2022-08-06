@@ -16,6 +16,29 @@ string[] CreateStringArray(int size)
     return arr;
 }
 
+string[] ResultStringArray(string[] arr)
+{
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] newArray = new string[count];
+    int num = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            newArray[num] = arr[i];
+            num++;
+        }
+    }
+    return newArray;
+}
+
 void PrintArray(string[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
@@ -23,9 +46,10 @@ void PrintArray(string[] arr)
         if (i == 0) Console.Write("Массив [");
         if (i < arr.Length - 1) Console.Write(arr[i] + ",");
         else Console.Write(arr[i] + "]");
-
     }
 }
 
 string[] array = CreateStringArray(sizeArr);
 PrintArray(array);
+string[] newArray = ResultStringArray(array);
+PrintArray(newArray);
